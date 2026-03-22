@@ -1,0 +1,19 @@
+{
+  "name": "project_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.183.2",
+    "vite": "^8.0.1"
+  },
+  "devDependencies": {
+    "globals": "^17.4.0"
+  }
+}
