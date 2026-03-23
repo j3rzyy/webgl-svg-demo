@@ -25,3 +25,7 @@
 npm install
 npm run dev
 ```
+
+## Демо проекта на Vercel
+
+https://webgl-svg-demo.vercel.app/
