@@ -1,5 +1,11 @@
 export const CONFIG = {
-  DEBUG_LIGHT: true,
+  scene: {
+    background: 'white',
+  },
+
+  renderer: {
+    antialias: true,
+  },
 
   camera: {
     frustumSize: 5,
@@ -19,12 +25,12 @@ export const CONFIG = {
 
   lights: {
     directional: {
-      color: 0xffffff,
+      color: 'white',
       intensity: 100,
       position: { x: 8, y: 2, z: -10 },
     },
     ambient: {
-      color: 0xffffff,
+      color: 'white',
       intensity: 5,
     },
   },

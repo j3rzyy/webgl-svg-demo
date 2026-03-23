@@ -36,10 +36,6 @@ body {
   aspect-ratio: 8 / 5;
 }
 
-#scene-svg-container {
-  background-color: #fff;
-}
-
 .controls {
   padding: 20px;
 }

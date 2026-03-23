@@ -1,7 +1,8 @@
 import * as THREE from 'three';
+import { CONFIG } from '../../config.js';
 
 export function createScene() {
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xffffff);
+  scene.background = new THREE.Color(CONFIG.scene.background);
   return scene;
 }

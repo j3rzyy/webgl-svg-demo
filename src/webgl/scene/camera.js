@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { CONFIG } from '../config.js';
+import { CONFIG } from '../../config.js';
 
 export function createCamera(aspect) {
   const { frustumSize, near, far, position } = CONFIG.camera;
