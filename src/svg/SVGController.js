@@ -1,4 +1,4 @@
-import { getSvg, createSvg } from './utils.js';
+import { loadSvg, createSvg } from './utils.js';
 import { CONFIG } from '../config.js';
 
 export class SVGController {
@@ -8,8 +8,10 @@ export class SVGController {
   }
 
   async init() {
-    const svgEl = await getSvg('./src/assets/circle.svg');
-    this.circle = createSvg(svgEl, this.container).getElementById('main-circle');
+    const svgText = await loadSvg('/circle.svg');
+    const svg = createSvg(svgText, this.container);
+
+    this.circle = svg.querySelector('#main-circle');
   }
 
   updateCircleColor(isTogether) {

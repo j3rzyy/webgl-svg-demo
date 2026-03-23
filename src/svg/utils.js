@@ -1,10 +1,9 @@
 import { CONFIG } from '../config.js';
 
-export async function getSvg(svgPath) {
+export async function loadSvg(svgPath) {
   const response = await fetch(svgPath);
-  const svgEl = await response.text();
 
-  return svgEl;
+  return await response.text();
 }
 
 export function createSvg(element, container) {
