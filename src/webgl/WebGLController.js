@@ -23,24 +23,30 @@ export class WebGLController {
     this.renderer = renderer;
     this.updateSize = updateSize;
 
-    this.camera = createCamera(this.getAspect());
+    this.camera = createCamera(this.#getAspect());
+    this.scene.add(this.camera);
 
-    createLights(this.scene, this.camera);
+    const { directionalLight, ambientLight } = createLights(this.scene, this.camera);
+    this.scene.add(ambientLight);
+    this.camera.add(directionalLight);
 
     const { cube1, cube2 } = createCubes(this.scene);
+    this.scene.add(cube1);
+    this.scene.add(cube2);
+
     this.animation = new CubeAnimation(cube1, cube2, this.renderer, this.scene, this.camera);
 
     window.addEventListener('resize', () => this.onWindowResize());
 
-    this.animation.animate();
+    this.renderer.render(this.scene, this.camera);
   }
 
-  getAspect() {
+  #getAspect() {
     return this.container.clientWidth / this.container.clientHeight;
   }
 
   onWindowResize() {
-    const aspect = this.getAspect();
+    const aspect = this.#getAspect();
     const d = CONFIG.camera.frustumSize;
 
     this.camera.left = -d * aspect;
@@ -50,7 +56,7 @@ export class WebGLController {
     this.camera.updateProjectionMatrix();
 
     this.updateSize();
-    this.animation.animate();
+    this.renderer.render(this.scene, this.camera);
   }
 
   async toggle() {

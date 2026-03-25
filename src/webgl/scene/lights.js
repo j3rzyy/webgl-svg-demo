@@ -7,11 +7,7 @@ export function createLights(scene, camera) {
   const directionalLight = new THREE.DirectionalLight(directional.color, directional.intensity);
   directionalLight.position.set(directional.position.x, directional.position.y, directional.position.z);
 
-  camera.add(directionalLight);
-  scene.add(camera);
-
   const ambientLight = new THREE.AmbientLight(ambient.color, ambient.intensity);
-  scene.add(ambientLight);
 
   return { directionalLight, ambientLight };
 }

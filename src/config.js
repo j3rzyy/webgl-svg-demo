@@ -9,8 +9,8 @@ export const CONFIG = {
 
   camera: {
     frustumSize: 5,
-    near: 1,
-    far: 1000,
+    near: 0,
+    far: 100,
     position: { x: 0, y: 0, z: 10 },
   },
 
@@ -27,7 +27,7 @@ export const CONFIG = {
     directional: {
       color: 'white',
       intensity: 100,
-      position: { x: 8, y: 2, z: -10 },
+      position: { x: 8, y: 0.5, z: -10 },
     },
     ambient: {
       color: 'white',

@@ -12,8 +12,7 @@ const svg = new SVGController(svgContainer);
 await svg.init();
 
 // Action
-const btnCloser = document.getElementById('btn');
-btnCloser.addEventListener('click', async (event) => {
+document.getElementById('btn').addEventListener('click', async (event) => {
   event.preventDefault();
   svg.updateCircleColor(await webgl.toggle());
 });

@@ -32,7 +32,7 @@ export class CubeAnimation {
     this.cubes.forEach((cube) => cube.material.color.set(color));
   }
 
-  animate() {
+  animateFrame() {
     const { state, config } = this;
 
     if (state.isAnimating) {
@@ -42,11 +42,12 @@ export class CubeAnimation {
         state.currentDistance = state.targetDistance;
         state.isAnimating = false;
         this.#updateColor();
+
         state.resolveAnimation?.(state.isTogether);
         state.resolveAnimation = null;
       } else {
         state.currentDistance += Math.sign(diff) * config.animationSpeed;
-        requestAnimationFrame(() => this.animate());
+        requestAnimationFrame(() => this.animateFrame());
       }
 
       this.#updatePositions();
@@ -56,12 +57,11 @@ export class CubeAnimation {
   }
 
   toggle() {
-    return new Promise((resolve) => {
-      const { state, config } = this;
+    const { state, config } = this;
 
+    return new Promise((resolve) => {
       if (state.isAnimating) {
-        resolve(false);
-        return;
+        return resolve(false);
       }
 
       state.resolveAnimation = resolve;
@@ -69,7 +69,7 @@ export class CubeAnimation {
       state.isTogether = !state.isTogether;
       state.isAnimating = true;
 
-      this.animate();
+      this.animateFrame();
     });
   }
 }

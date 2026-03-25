@@ -16,11 +16,7 @@ function createTransformMatrix() {
 export function createCubes(scene) {
   const { size, colorApart } = CONFIG.cubes;
 
-  const material = new THREE.MeshStandardMaterial({
-    color: colorApart,
-    roughness: 0.5,
-    metalness: 0.1,
-  });
+  const material = new THREE.MeshStandardMaterial({ color: colorApart });
 
   const geometry1 = new THREE.BoxGeometry(size, size, size);
   const cube1 = new THREE.Mesh(geometry1, material);
@@ -31,9 +27,6 @@ export function createCubes(scene) {
   const transformMatrix = createTransformMatrix();
   cube1.geometry.applyMatrix4(transformMatrix);
   cube2.geometry.applyMatrix4(transformMatrix);
-
-  scene.add(cube1);
-  scene.add(cube2);
 
   return { cube1, cube2 };
 }

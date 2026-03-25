@@ -14,7 +14,6 @@ export function createCamera(aspect) {
   );
 
   camera.position.set(position.x, position.y, position.z);
-  camera.lookAt(0, 0, 0);
 
   return camera;
 }
