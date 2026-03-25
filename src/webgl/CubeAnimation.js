@@ -59,9 +59,9 @@ export class CubeAnimation {
   toggle() {
     const { state, config } = this;
 
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       if (state.isAnimating) {
-        return resolve(false);
+        return reject(new Error('Animation already in progress'));
       }
 
       state.resolveAnimation = resolve;

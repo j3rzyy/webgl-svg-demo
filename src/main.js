@@ -14,5 +14,9 @@ await svg.init();
 // Action
 document.getElementById('btn').addEventListener('click', async (event) => {
   event.preventDefault();
-  svg.updateCircleColor(await webgl.toggle());
+  try {
+    svg.updateCircleColor(await webgl.toggle());
+  } catch (error) {
+    console.warn(error);
+  }
 });
